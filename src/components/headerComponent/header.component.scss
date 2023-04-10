@@ -1,0 +1,123 @@
+a.cart_icon.nav-link  {
+    margin-left: auto;
+    img{
+        width: 26px;
+    } 
+}
+.d-block{
+    display: block;
+}
+div.cart_icon {
+    margin-left: auto;
+    height: 50px;
+    margin-right: 2px;
+    position: relative;
+ 
+    img{
+        width: 20px;
+        cursor: pointer;
+    }
+    .box {
+        background: #fff;
+        height: 400px;
+        width: 300px;
+        border: 1px solid #eee;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius: 4px;
+        position: absolute;
+        top: 100%;
+        transform: translate(-50%, 10px);
+         &.box:before {
+            content: '';
+            background: #fff;
+            height: 20px;
+            width: 20px;
+            top: -10px;
+            left: 50%;
+            position: absolute;
+            transform: rotate(45deg);
+            z-index: 0;
+            border-radius: 6px;
+        }
+    }
+    .box_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* height: 30px; */
+        padding: 10px 3px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 0px;
+        position: sticky;
+        top: 0px;
+        button.close {
+            border: 1px solid #eee;
+            background: none;
+            height: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            text-align: center;
+            color: gray;
+            border: 0px;
+            font-size: 20px;
+         }
+    }
+ }
+a.navbar-brand {
+    width: 94px;
+    height: 100px;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
+}
+.nav{
+ background:    #fbfbff !important
+}
+
+
+// carousel
+.carousel-indicators [data-bs-target] {
+ 
+     color: #333 !important;
+ 
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+    background-color: #000;
+    padding: 18px;
+}
+.carousel.slide {
+    margin-top: 121px;
+}
+.carousel_images {
+    height: 456px;
+    background-position: center top;
+    .carousel-caption {
+        color: #333;
+        margin-left: auto;
+        text-align: left;
+       bottom: 188px;
+        font-family: auto;
+        border-bottom: 1px solid;
+        text-shadow: 0 0 black;
+        h3{
+            font-size: 52px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        p{
+            font-size: 30px;
+            color: #3339;
+            font-weight: 200;
+        }
+    }
+}
+// carousel
