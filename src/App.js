@@ -1,22 +1,24 @@
  import './App.scss';
 import  HeaderComponent from './components/headerComponent/header.component';
 import { Component } from 'react';
-import{CartContextProvider} from './services/contexts/CartContext'
-import { StorePage } from './pages/storepage';
-import { BrowserRouter } from 'react-router-dom';
-class App extends Component {
+import { StorePage } from './pages/storePage/storepage';
+import { Route, Routes } from 'react-router-dom';
+import { HomePage } from './pages/HomePage/Home.page';
+ class App extends Component {
 render(){
   return (
-    <BrowserRouter>
-    <CartContextProvider>
+    <>
+    <Routes>
+ <Route path='/' element={<HeaderComponent/>} >
 
-    <div className="App">
- <HeaderComponent/>
-<StorePage/>
+  <Route index element={<HomePage/>}/>
 
-    </div>
-    </CartContextProvider>
-    </BrowserRouter>
+  <Route path='shop/*' element={<StorePage/>}/>
+ </Route>
+
+
+       </Routes>
+    </>
   );
 }
 }

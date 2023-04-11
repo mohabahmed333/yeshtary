@@ -17,7 +17,7 @@ render(){
         <img src={this.props.item.imageUrl} alt={this.props.item.name}   />
         <div className="name_price">
             <p>{this.props.item.name}</p>
-            <p>{this.props.item.price}</p>
+            <p className="price_qu">{this.props.item.price} <span className="qu">Qta {this.props.item.quantity}</span></p>
         </div>
     </div>
 

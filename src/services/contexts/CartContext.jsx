@@ -3,20 +3,70 @@ import { createContext ,Component} from "react";
 export const CartContext = createContext({
     open:false,
     cart:[],
-    addToCart:()=>null
+    AddToCart:()=>null
 });
 
 
 export class CartContextProvider extends Component {
     state = {
         open:false,
-        cart:[],
-        addToCart:()=>null,
+        items:[],
+        AddToCart:()=>null,
+        quantity:0,
+        total:0
      }
-     updateCartOpening = open=>this.setState(state=>state.open=open,(state)=>console.log(state))
-    render() {
+     updateCartOpening = open=>this.setState(state=>state.open=open);
+
+
+
+   HandleCartItems = (items,productItem)=>{
+    const existingItem= items.find(product=>product.id===productItem.id)
+  if(existingItem){
+   return this.state.items.map(cartItem=>cartItem.id===productItem.id
+      ?{...cartItem,
+          quantity:cartItem.quantity+1
+      } 
+      :cartItem
+      )
+  }
+  
+  return [...this.state.items ,{...productItem,quantity:1}]
+}
+
+// calculate quantity and price
+ HandleQuantityPrice= (newItems)=>{
+  console.log(newItems)
+  const PaidItems = newItems.reduce((price,item)=>{
+       return price+item.price*item.quantity
+  },0);
+   const newCalCulateItem =newItems.reduce((total,product)=>{
+      return total+product.quantity
+  },0);
+
+   this.setState(state=>{
+    return{
+      ...state,
+      quantity:newCalCulateItem,
+      total:PaidItems
+    }
+   })
+  // dispatch({type:'SET_CART_ITEM',payload:{items:newItems,totalCart:newCalCulateItem,totalPaid:PaidItems}});
+  console.log(this.state) 
+}
+
+ 
+
+
+
+AddToCart= (productItem)=>{
+;
+ this.setState((state)=>{return{...this.state,items:this.HandleCartItems(this.state.items,productItem)}},()=> this.HandleQuantityPrice(this.state.items) ) ;
+
+
+}
+render() {
       return (
-        <CartContext.Provider value={ {state: this.state,updateCart:this.updateCartOpening} }>
+        <CartContext.Provider value={ {state: this.state,updateCart:this.updateCartOpening,cartFunc:this.AddToCart} }>
           {this.props.children}
         </CartContext.Provider>
       )

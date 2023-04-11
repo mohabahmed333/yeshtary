@@ -31,8 +31,7 @@ p.link {
   background-position: left;
   background-clip: inherit;
   background-attachment: fixed;
-  position: sticky;
-  top:100px
+  
 }
 .all_container .new_item {
   background: none;
@@ -127,11 +126,11 @@ p.link {
     position: relative;
 }
 .name_add_to_cart {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: 94%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+    
     p{
         color: #333;
     font-weight: 700;
@@ -139,34 +138,26 @@ p.link {
     text-transform: uppercase;
     margin-top: 20px;
     border-bottom: 1px solid;
+    margin-bottom: 0px;
     }
     button.cart_button_new {
-        display: flex;
-        width: 118px;
-        margin-left: 9px;
-        background: rgba(51, 51, 51, 0);
-        height: 32px;
-        border-radius: 2px;
-        font-size: 14px;
-        padding: 10px;
-        align-items: center;
-        justify-content: space-between;
-        box-shadow: rgb(149 157 165 / 61%) 0px 8px 20px 0px;
-        transition: 0.6s all ease-in-out;
-        background-color: #333;
-        backdrop-filter: blur(15px);
-        color: #fff;
-        border: 1px solid #333;
-        border-radius: 4px;
-        width: fit-content;
-        white-space: nowrap;
-        margin-top: auto;
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        width: 80%;
-        height: 40px;
-        width: fit-content;
+      display: flex;
+      width: 118px;
+      margin-left: 9px;
+      height: 32px;
+      border-radius: 2px;
+      font-size: 14px;
+      padding: 10px;
+      align-items: center;
+      transition: 0.6s all ease-in-out;
+      color: #333;
+      white-space: nowrap;
+      margin-top: auto;
+      text-align: center;
+      justify-content: center;
+      width: fit-content;
+      border: 0px;
+      background: none;
         &:hover{
             opacity: 0.8;
          }

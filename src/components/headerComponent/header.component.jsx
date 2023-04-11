@@ -10,9 +10,11 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Badge } from 'react-bootstrap';
 import { render } from '@testing-library/react';
 import { GETCollection } from '../../fireBase/firebaseMethods/GetCollectionsMethod';
- import { StorePage } from '../../pages/storepage';
+ import { StorePage } from '../../pages/storePage/storepage';
 import { CartContext } from '../../services/contexts/CartContext';
 import { CartListComponent } from '../cartList.component/cartListComponent';
+import { Outlet } from 'react-router';
+import { Link } from 'react-router-dom';
  class HeaderComponent extends  Component  {
  
 
@@ -46,8 +48,8 @@ render(){
 <Navbar bg="light" variant="light" fixed="top" className='nav' >
     <Container>
       <Nav className="me-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#features">Store</Nav.Link>
+        <Link className='nav-item link' to={'/'}>Home</Link>
+        <Link className='nav-item link' to={'shop'} >Store</Link>
        </Nav>
       <Navbar.Brand href="#home">          
         <img src={logo} alt="" />
@@ -56,18 +58,28 @@ render(){
             
             <img  src={cartIcon} alt="" srcset="" 
              onClick={ ()=>updateCart(!state.open) }/>
-            <Badge bg="secondary">0</Badge>
+            <Badge bg="secondary">{state.quantity}</Badge>
 
        {
          state.open&&   <div className='box'>
              <div className="box_header">
                <p>Your Cart </p> <button className="close"
                 onClick={ ()=>updateCart(false) }
-               >
+                >
                  x
                </button>
              </div>
+             <div className="t_totla">
+
+                 <p>Total  Price </p>
+                <p>
+                {state.total}$
+                   </p> 
+                   </div>
                <CartListComponent/>
+             
+
+                
            </div>
        }
         </div >
@@ -75,26 +87,7 @@ render(){
     </Container>
   </Navbar>
   </div>
-  <Carousel>
-  <Carousel.Item className='carousel_images' style={{backgroundImage:`url(${'https://images.canadagoose.com/c_scale,f_auto,q_auto:best,w_1920/cg-global/pages/plp-category-banners/flagship/Flagship_Desktop_PLP_Mens07_Puffers.jpg'})`}}>
-   
-   
-    <Carousel.Caption>
-      <h3>Explore Our Latest Offers</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item className='carousel_images' 
-  style={{backgroundImage:`url(${'https://images.canadagoose.com/image/upload/w_1920,c_scale,f_auto,q_auto:best/v1658780840/product-image/2252MB_200_fsch.jpg'})`}}>
-   
-   
-    <Carousel.Caption>
-      <h3>Explore Our Latest Offers</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-
-</Carousel>
+<Outlet/>
 </>
   )
  
