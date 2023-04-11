@@ -1,0 +1,23 @@
+.cartItem {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    background: #fff;
+    margin-top: 2px;
+    height: fit-content;
+    border-radius: 4px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 78px;
+    overflow: hidden;
+    img {
+        width: 100px !IMPORTANT;
+        height: 97px;
+        margin: 10px;
+    }
+    .name_price {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        flex-direction: column;
+    }
+}

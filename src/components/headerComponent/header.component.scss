@@ -18,15 +18,23 @@ div.cart_icon {
         cursor: pointer;
     }
     .box {
-        background: #fff;
-        height: 400px;
-        width: 300px;
-        border: 1px solid #eee;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        border-radius: 4px;
-        position: absolute;
-        top: 100%;
-        transform: translate(-50%, 10px);
+ 
+     
+            background: #fff;
+            height: 400px;
+            width: 300px;
+            border: 1px solid #eee;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 4px;
+            position: absolute;
+            top: 100%;
+            transform: translate(-50%, 10px);
+            background: #f9f9f9;
+            overflow: auto;
+            height: 358px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            padding: 5px;
+    
          &.box:before {
             content: '';
             background: #fff;
@@ -44,12 +52,17 @@ div.cart_icon {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* height: 30px; */
-        padding: 10px 3px;
+        height: auto;
+        /* padding: 10px 3px; */
         border-bottom: 1px solid #ddd;
         padding-bottom: 0px;
         position: sticky;
         top: 0px;
+        margin-bottom: 10px;
+        border: 0px;
+        p{
+            margin: 0px;
+        }
         button.close {
             border: 1px solid #eee;
             background: none;

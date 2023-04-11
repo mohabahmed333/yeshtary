@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, useContext } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -11,33 +11,36 @@ import { Badge } from 'react-bootstrap';
 import { render } from '@testing-library/react';
 import { GETCollection } from '../../fireBase/firebaseMethods/GetCollectionsMethod';
  import { StorePage } from '../../pages/storepage';
+import { CartContext } from '../../services/contexts/CartContext';
+import { CartListComponent } from '../cartList.component/cartListComponent';
  class HeaderComponent extends  Component  {
+ 
 
-constructor(){
-  super();
-  // var el = document.querySelector('.cart_icon');
-  // el&&document.querySelector('#mainCart').addEventListener('click',()=>{
-  //   document.querySelector('.cart_icon .box').classList.toggle('d-block')
-  //   })
-  this.state ={
-    open:false,
-    cart:[]
-  }
+constructor(props){
+  super(props);
+ 
 
 }
 componentDidMount(){
 
+  
+ ;
+console.log(this.context.state);
   const getCollectionsofShop = async ()=>{
     const collections = await GETCollection();
     console.log(collections)
   }
   getCollectionsofShop();
   
-  console.log(this.state)
 }
+  HandleClick=()=>{
+   
+ }
 render(){
-
-  return(
+   return(
+    <CartContext.Consumer
+    >
+{  this.context=({state,updateCart})=>(
     <>
     <div className="header">
 <Navbar bg="light" variant="light" fixed="top" className='nav' >
@@ -47,30 +50,24 @@ render(){
         <Nav.Link href="#features">Store</Nav.Link>
        </Nav>
       <Navbar.Brand href="#home">          
-        <img src={logo} alt="" srcset="" />
+        <img src={logo} alt="" />
 </Navbar.Brand>
         <div className='cart_icon' id='mainCart' href="#features">
             
             <img  src={cartIcon} alt="" srcset="" 
-            onClick={()=>this.setState(state=>{
-              return{
-                ...state ,
-                open:!state.open
-                
-              
-              }
-             })}/>
+             onClick={ ()=>updateCart(!state.open) }/>
             <Badge bg="secondary">0</Badge>
 
        {
-          this.state.open&&   <div className='box'>
+         state.open&&   <div className='box'>
              <div className="box_header">
                <p>Your Cart </p> <button className="close"
-                onClick={()=>this.setState(state=>state.open=false)}
+                onClick={ ()=>updateCart(false) }
                >
                  x
                </button>
              </div>
+               <CartListComponent/>
            </div>
        }
         </div >
@@ -98,8 +95,12 @@ render(){
   </Carousel.Item>
 
 </Carousel>
-<StorePage/>
 </>
+  )
+ 
+}
+</CartContext.Consumer>
+
  )
    }
  
