@@ -3,6 +3,7 @@ import { GETCollection } from "../../fireBase/firebaseMethods/GetCollectionsMeth
 import { Link } from "react-router-dom";
 import './directoryComponent.scss'
 import { DirectoryitemComponent } from "./directory_item.component/directoryItem.component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 export class DirectoryComponent extends Component{
 
 constructor(props){
@@ -40,18 +41,21 @@ return(
        
      
   <div  key={title} className='all_container'  >
-  <div className='collection_preview_background' style={{backgroundImage:`url(${collImg})`}
-}  >
-
+  <div className='collection_preview_background' 
+   >
 <div className='collection_text_preview'>
-    <p>get New Our New Collections <br/>
+<LazyLoadImage src={collImg} alt={routeName} effect='blur' />
+   <div className="d-column">
+   <p>get New Our New Collections <br/>
     Check out Our New Arrival !
     </p>
-    <h3> {routeName}   <Link className='logo-container'
-     to={ `/`} >
-
+        <Link className="link" to={`/shop/${routeName}`}> 
+    <h3>
+         {routeName} 
+          </h3>
+</Link>
  
-</Link></h3>
+         </div>     
 
 </div>
 </div>

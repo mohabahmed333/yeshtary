@@ -136,6 +136,14 @@ a.navbar-brand {
 }
 
 @media(max-width:768px){
+    a.nav-item.link.L-Affiliate-Tagged {
+        font-size: 11px !IMPORTANT;
+        font-weight: 100;
+        text-transform: capitalize;
+        margin-right: auto;
+        margin: 0px;
+        padding: 4px;
+    }
     .carousel_images 
     {
     .carousel-caption {
@@ -155,6 +163,10 @@ a.navbar-brand {
             font-size: 20px;
         }
     }
+}
+a.navbar-brand img {
+    width: 55%;
+    margin: 13px;
 }
 }
 // carousel
@@ -249,3 +261,4 @@ div.t_totla {
     justify-content: center;
     text-align: left;
 }
+ 

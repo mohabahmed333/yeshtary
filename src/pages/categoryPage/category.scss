@@ -17,6 +17,11 @@
      height: 30px;
      align-items: center;
      margin: auto;
+     overflow-x: auto;
+     overflow-y: hidden;
+     &::-webkit-scrollbar {
+        display: none;
+      }
       
      li {
          height: 30px;
@@ -35,6 +40,7 @@
             font-family: auto;
             text-transform: capitalize;
             margin-bottom: 14px;
+            font-size: smaller;
             &:hover{
                 color:rgba(51, 51, 51, 0.842)
             }

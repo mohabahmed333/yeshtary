@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { CartContext } from "../../../services/contexts/CartContext";
-
+import { LazyLoadImage} from "react-lazy-load-image-component";
 export class DirectoryitemComponent extends Component{
 
 constructor(props){
@@ -9,20 +9,23 @@ constructor(props){
 }
 
     render(){
+
+      const {item} = this.props
     return(
   <CartContext.Consumer>
 {
   this.context = (cart)=>(
     <>
     <div className="col-md-3 ">
-   <div className=" item " style={{backgroundImage:`url(${this.props.item.imageUrl})`}}> 
+ <div className="item_container">
+ <LazyLoadImage effect="blur" src={item.imageUrl} className=" item "  /> 
 
-</div>
 <div className="name_add_to_cart">
-<p>{this.props.item.name}</p>
+<p>{item.name}</p>
 
-<button className="cart_button_new " onClick={()=>cart.cartFunc(this.props.item)} >add To Cart {this.props.item.price}</button>
+<button className="cart_button_new " onClick={()=>cart.cartFunc( item)} >add To Cart { item.price}</button>
 </div>
+ </div>
 </div>
 
 </>
