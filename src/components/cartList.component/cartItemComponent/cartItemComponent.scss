@@ -27,3 +27,19 @@
         text-align: left;
     } 
 }
+.rfc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15px;
+    button {
+        background: none;
+        border: 0px;
+        font-size: 11px;
+        margin-right: 12px;
+        text-transform: uppercase;
+        &:hover{
+            color:rgba(51, 51, 51, 0.801)
+        }
+    }
+}

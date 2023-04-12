@@ -5,19 +5,24 @@ export class CartItemComponent extends Component{
 constructor(props){
     super(props)
     ;
-    console.log(props.item);
-
+ 
 }
 render(){
+
+    const{imageUrl,name,price,quantity}=this.props.item
     return(
 
 
     <>
     <div className="cartItem">
-        <img src={this.props.item.imageUrl} alt={this.props.item.name}   />
+        <img src={imageUrl} alt={name}   />
         <div className="name_price">
-            <p>{this.props.item.name}</p>
-            <p className="price_qu">{this.props.item.price} <span className="qu">Qta {this.props.item.quantity}</span></p>
+            <p>{name}</p>
+            <div className="rfc">
+
+            <p className="price_qu">{price} <span className="qu">Qta {quantity}</span></p>
+            <button onClick={()=>this.props.cartContext.rmvCart(this.props.item)}>remove</button>
+            </div>
         </div>
     </div>
 

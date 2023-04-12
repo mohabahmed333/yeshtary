@@ -1,5 +1,4 @@
-$color1: #333;
-$transition1: all 180ms ease-in-out;
+ $transition1: all 180ms ease-in-out;
 
 a.cart_icon.nav-link  {
     margin-left: auto;
@@ -91,7 +90,7 @@ a.navbar-brand {
         width: 100%;
     }
 }
-.nav{
+.nav.nav.navbar.navbar-expand.navbar-light.fixed-top{
  background:    #fbfbff !important
 }
 
@@ -99,7 +98,7 @@ a.navbar-brand {
 // carousel
 .carousel-indicators [data-bs-target] {
  
-     color: #333 !important;
+     color: var(--secondryColor) !important;
  
 }
 .carousel-control-next-icon, .carousel-control-prev-icon {
@@ -116,7 +115,7 @@ a.navbar-brand {
     height: 456px;
     background-position: center top;
     .carousel-caption {
-        color: #333;
+        color: var(--secondryColor);
         margin-left: auto;
         text-align: left;
        bottom: 188px;
@@ -135,11 +134,34 @@ a.navbar-brand {
         }
     }
 }
+
+@media(max-width:768px){
+    .carousel_images 
+    {
+    .carousel-caption {
+        color: var(--secondryColor);
+        margin-left: auto;
+        text-align: left;
+        bottom: 188px;
+        font-family: auto;
+        border-bottom: 1px solid;
+        text-shadow: 0 0 black;
+        top: 123px;
+        h3 {
+            font-size: 20px ;
+           
+        }
+        p{
+            font-size: 20px;
+        }
+    }
+}
+}
 // carousel
 .link {
-    color: rgba($color1,0.35);
+    color: rgba(var(--secondryColor),0.35);
     &:hover {
-        color: #333;
+        color: var(--secondryColor);
         &:after {
             width: calc(100% - 20px); // Left and right padding of parent element
         }
@@ -149,7 +171,7 @@ a.navbar-brand {
 .link {
     text-transform: uppercase;
     font-size: 18px;
-    color: #333;
+    color: var(--secondryColor);
     text-decoration: none;
     padding: 15px 10px;
     margin: 0;
@@ -164,7 +186,7 @@ a.navbar-brand {
     position: absolute;
     height: 2px;
     width: 0;
-    background: $color1;
+    background: var(--secondryColor);
     bottom: 0.65rem;
     left: 10px; // Left padding of parent element
     transition: $transition1;
@@ -173,7 +195,7 @@ a.navbar-brand {
  
 div.t_totla {
     margin: 0px;
-    background: #fff;
+    background: var(--primaryColor);
     position: sticky;
     top: 27px;
     font-size: 13px;
@@ -196,3 +218,34 @@ div.t_totla {
   ::-webkit-scrollbar-thumb:hover {
     background: #555 !important; 
   }
+  @media(max-width:768px){
+    .box{
+        position: fixed   !important;
+        top: 112px  !important;
+        left: 48%;
+        right: 50%;
+     }
+  }
+
+  @media(max-width:768px){
+    div.cart_icon {
+ 
+        margin-left: unset;
+        margin: a;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .carousel_images {
+        height: 307px;
+        background-position: left center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }   
+  }.emptyCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}

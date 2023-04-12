@@ -36,13 +36,11 @@ return(
 {
    collectionItems&& Object.keys(collectionItems).map(title=>{
  const {collImg ,routeName,items} =collectionItems[title]
-console.log(collImg);
-        
-       return(<>
+        return(<>
        
      
-  <div className='all_container'>
-  <div key={title} className='collection_preview_background' style={{backgroundImage:`url(${collImg})`}
+  <div  key={title} className='all_container'  >
+  <div className='collection_preview_background' style={{backgroundImage:`url(${collImg})`}
 }  >
 
 <div className='collection_text_preview'>
@@ -79,12 +77,13 @@ console.log(collImg);
 }
 </div>
  </div>
-</div>
-<div className='more'><p>
+ 
+<Link className='more' to={`/shop/${title}`}>
+<p>
 shop All Collections 
-  </p>        <i class="fa-solid fa-arrow-right arrow-right"></i>
-</div> 
-
+  </p>        <i className="fa-solid fa-arrow-right arrow-right"></i>
+</Link> 
+</div>
        </>)
     })
 }

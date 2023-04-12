@@ -1,4 +1,4 @@
-import { Component, useContext } from 'react';
+import { Component, Fragment, useContext } from 'react';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -15,6 +15,7 @@ import { CartContext } from '../../services/contexts/CartContext';
 import { CartListComponent } from '../cartList.component/cartListComponent';
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
+import EmptyCart from '../../images/106964-shake-a-empty-box.gif'
  class HeaderComponent extends  Component  {
  
 
@@ -27,11 +28,9 @@ componentDidMount(){
 
   
  ;
-console.log(this.context.state);
-  const getCollectionsofShop = async ()=>{
+   const getCollectionsofShop = async ()=>{
     const collections = await GETCollection();
-    console.log(collections)
-  }
+   }
   getCollectionsofShop();
   
 }
@@ -45,18 +44,19 @@ render(){
 {  this.context=({state,updateCart})=>(
     <>
     <div className="header">
-<Navbar bg="light" variant="light" fixed="top" className='nav' >
+<Navbar   variant="light" fixed="top" className='nav' >
     <Container>
       <Nav className="me-auto">
         <Link className='nav-item link' to={'/'}>Home</Link>
         <Link className='nav-item link' to={'shop'} >Store</Link>
+        <Link className='nav-item link' to={'about'} >About</Link>
        </Nav>
-      <Navbar.Brand href="#home">          
-        <img src={logo} alt="" />
-</Navbar.Brand>
+      <Link className='navbar-brand'  to={'/'} >          
+        <img src={logo} alt="logo" />
+</Link>
         <div className='cart_icon' id='mainCart' href="#features">
             
-            <img  src={cartIcon} alt="" srcset="" 
+            <img  src={cartIcon} alt="shopping cart"  
              onClick={ ()=>updateCart(!state.open) }/>
             <Badge bg="secondary">{state.quantity}</Badge>
 
@@ -76,6 +76,15 @@ render(){
                 {state.total}$
                    </p> 
                    </div>
+                   <div className='emptyCart'>
+                   {
+                     state.items.length===0&&
+            <Fragment>
+                       <h6>Your Cart is Empty !</h6>
+                     <img src={EmptyCart} alt='emptyCart' style={{width:'200px'}} />
+            </Fragment>
+                    }
+                    </div>
                <CartListComponent/>
              
 

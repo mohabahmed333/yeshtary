@@ -1,0 +1,17 @@
+.aboutUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    p {
+        width: 600px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    h2{
+        width: fit-content;
+        border-bottom: 1px solid 
+        ;
+        text-transform: uppercase;
+    }
+}

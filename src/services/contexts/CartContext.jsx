@@ -35,8 +35,7 @@ export class CartContextProvider extends Component {
 
 // calculate quantity and price
  HandleQuantityPrice= (newItems)=>{
-  console.log(newItems)
-  const PaidItems = newItems.reduce((price,item)=>{
+   const PaidItems = newItems.reduce((price,item)=>{
        return price+item.price*item.quantity
   },0);
    const newCalCulateItem =newItems.reduce((total,product)=>{
@@ -50,9 +49,7 @@ export class CartContextProvider extends Component {
       total:PaidItems
     }
    })
-  // dispatch({type:'SET_CART_ITEM',payload:{items:newItems,totalCart:newCalCulateItem,totalPaid:PaidItems}});
-  console.log(this.state) 
-}
+ }
 
  
 
@@ -60,13 +57,21 @@ export class CartContextProvider extends Component {
 
 AddToCart= (productItem)=>{
 ;
- this.setState((state)=>{return{...this.state,items:this.HandleCartItems(this.state.items,productItem)}},()=> this.HandleQuantityPrice(this.state.items) ) ;
+ this.setState((state)=>{return{...state,items:this.HandleCartItems(this.state.items,productItem)}},()=> this.HandleQuantityPrice(this.state.items) ) ;
 
 
 }
-render() {
+RemoveFromCart = (product)=>{
+this.setState(state=>{return{...state
+  ,items:state.items.
+  filter(item=>item.id!==product.id)
+
+}
+},()=>{this.HandleQuantityPrice(this.state.items)})
+}
+render() { 
       return (
-        <CartContext.Provider value={ {state: this.state,updateCart:this.updateCartOpening,cartFunc:this.AddToCart} }>
+        <CartContext.Provider value={ {state: this.state,updateCart:this.updateCartOpening,cartFunc:this.AddToCart,rmvCart:this.RemoveFromCart} }>
           {this.props.children}
         </CartContext.Provider>
       )

@@ -1,7 +1,7 @@
-import { Component } from "react";
+import { Component, Suspense, lazy } from "react";
 import { DirectoryComponent } from "../../components/DirectoryComponent/directory.component";
 import {Routes, Route} from 'react-router-dom'
-import { Category } from "../categoryPage/categoriePage";
+ const CategoryLazy = lazy(()=>import('../categoryPage/categoriePage'))
   export class StorePage extends Component{
 constructor(props){
     super(props);
@@ -14,7 +14,7 @@ constructor(props){
         
       <Routes>
 <Route index element={<DirectoryComponent/>}/>
-<Route path=':cat' element={<Category/>}/>
+<Route path=':cat' element={<Suspense fallback='loading ....'> <CategoryLazy/></Suspense>}/>
       </Routes>
         </>
     }

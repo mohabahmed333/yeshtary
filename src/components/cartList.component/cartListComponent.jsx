@@ -12,12 +12,11 @@ return(
     <>
     <CartContext.Consumer>
 {this.context = (cart)=>{
-    console.log(cart)
-    return  <div className="cartList">
+     return  <div className="cartList">
     {
         cart.state.items.map(item=>
 
-            <CartItemComponent  item={{imageUrl:item.imageUrl  ,name:item.name,price:item.price,quantity:item.quantity}}/>
+            <CartItemComponent cartContext={cart} item={item}/>
         )
     }
 </div>
