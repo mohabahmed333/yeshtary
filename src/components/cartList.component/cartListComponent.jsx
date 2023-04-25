@@ -16,7 +16,7 @@ return(
     {
         cart.state.items.map(item=>
 
-            <CartItemComponent cartContext={cart} item={item}/>
+            <CartItemComponent cartContext={cart} key={item.name} item={item}/>
         )
     }
 </div>

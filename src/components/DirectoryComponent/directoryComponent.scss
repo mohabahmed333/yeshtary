@@ -1,3 +1,7 @@
+.all_container {
+  margin-bottom: 106px;
+}
+
 p.link {
     font-size: 14px;
 }
@@ -215,8 +219,8 @@ p.link {
 }
 .d-column{
   margin: auto;
-  justify-self: flex-start;
-  align-self: flex-start;
+ 
+  font-size: 22px;
 }
 
 @media(max-width:768px){
